@@ -4,7 +4,7 @@ metadata:
   name: my-nginx
   labels:
     env: test
-  spec:
-    containers:
-      - name: nginx
-        image: nginx
+spec:
+  containers:
+    - name: nginx
+      image: nginx
