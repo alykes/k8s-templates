@@ -1,4 +1,4 @@
-###Imperative Approach
+### Imperative Approach  
 
 ```
 kubectl create condfigmap \  
@@ -11,12 +11,12 @@ kubectl create configmap \
 app-config --from-file=app_config.properties
 ```
 
-###Declarative Approach
+### Declarative Approach  
 
 create a definition file for the config map as follows
 
 ```config-map.yaml```
-```
+```yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -27,13 +27,13 @@ data:
 ```
 ```kubectl create -f config-map.yaml```
 
-###Viewing ConfigMaps
+### Viewing ConfigMaps
 ```kubectl get configmaps```  
 ```kubectl describe configmaps```
 &nbsp;  
 
-###Injecting a configmap into a POD definition file
-```buildoutcfg
+### Injecting a configmap into a POD definition file
+```yaml
 spec: 
   containers: 
   - name: nginx
