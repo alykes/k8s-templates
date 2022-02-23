@@ -1,7 +1,7 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: devuser-dev-biding
+  name: devuser-dev-binding
 subjects:
   - kind: User
     name: dev-user

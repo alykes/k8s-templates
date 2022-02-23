@@ -1,0 +1,31 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: db-policy
+spec:
+  podSelector:
+    matchaLabels:
+      role: db
+  policyTypes:
+    - Ingress
+    - Egress
+  ingress:
+    - from:
+        - podSelector: #this is an AND with namespaceSelector
+            matchLabels:
+              name: api-pod
+          namespaceSelector: #this is an AND with podSelector
+            matchLabels:
+              name: production
+        - ipBlock: # this is an OR with the above two rules
+          cidr: 10.10.10.36/32
+      ports:
+        - protocol: TCP
+          port: 3306
+  egress:
+    - to:
+      ipBlock:
+        cidr: 10.10.10.36/32
+      ports:
+        - protocol: TCP
+          port: 80
