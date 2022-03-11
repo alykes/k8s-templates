@@ -53,3 +53,34 @@ etcdctl get name
 ```shell
 etcdctl get / --prefix --keys-only
 ```
+
+### Snapshots and backups
+```shell
+ETCDCTL_API=3 etcdctl --endpoints=https://127.0.0.1:2379 \
+  --cacert=<trusted-ca-file> --cert=<cert-file> --key=<key-file> \
+  snapshot save <backup-file-location>
+```
+
+```shell
+ETCDCTL_API=3 etcdctl --endpoints=https://127.0.0.1:2379 \
+  --cacert=/etc/kubernetes/pki/etcd/ca.crt --cert=/etc/kubernetes/pki/etcd/server.crt --key=/etc/kubernetes/pki/etcd/server.key \
+  snapshot save /opt/snapshot-pre-boot.db
+
+etcdctl snapshot status /opt/snapshot-pre-boot.db --write-out="table"
+```
+
+- Restoring
+```ETCDCTL_API=3 etcdctl --cacert=/etc/kubernetes/pki/etcd/ca.crt --cert=/etc/kubernetes/pki/etcd/server.crt \
+--key=/etc/kubernetes/pki/etcd/server.key --data-dir /var/lib/etcd/08032022 \
+snapshot restore /opt/snapshot-pre-boot.db```
+```
+change the etcd config for the data-dir to point to the new location
+and also change the hostPath to the new dir for etcd-data
+
+
+
+
+
+
+
+
