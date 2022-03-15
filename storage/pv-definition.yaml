@@ -4,9 +4,9 @@ metadata:
   name: pv-volume-1
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   capacity:
-    storage: 1Gi
+    storage: 100Mi
   awsElasticBlockStore:
     volumeID: #<volume-id>
     fsType: ext4

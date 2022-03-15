@@ -80,9 +80,6 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
 
 
-- Install CNI
-```kubectl apply -f "https://```
+- Install CNI ```kubectl apply -f "https://```
 
-- join nodes
-
-```kubeadm token create --print-join-command```
+- join nodes ```kubeadm token create --print-join-command```

@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: local-pvc
+  annotations:
+    volume.beta.kubernetes.io/storage-class: standard
+spec:
+  accessModes:
+    - ReadWriteMany
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 100Mi
+  storageClassName: standard
+# /var/lib/docker/volumes/minikube/_data/data/vol1/ on the host
+# https://minikube.sigs.k8s.io/docs/handbook/persistent_volumes/
+# sudo ln -s /var/lib/docker/volumes/minikube/_data/data /data

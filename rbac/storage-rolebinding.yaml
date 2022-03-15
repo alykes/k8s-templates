@@ -10,3 +10,19 @@ subjects:
 - apiGroup: rbac.authorization.k8s.io
   kind: User
   name: n00b
+
+
+
+#apiVersion: rbac.authorization.k8s.io/v1
+# This cluster role binding allows anyone in the "manager" group to read secrets in any namespace.
+#kind: ClusterRoleBinding
+#metadata:
+#  name: n00b-storage-admin
+#subjects:
+#- kind: User
+#  name: n00b # Name is case sensitive
+#  apiGroup: rbac.authorization.k8s.io
+#roleRef:
+#  kind: ClusterRole
+#  name: storage-admin
+#  apiGroup: rbac.authorization.k8s.io
