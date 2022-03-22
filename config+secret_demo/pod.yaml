@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: env-pod
+spec:
+  containers:
+    - name: busybox
+      image: busybox
+      command: ['sh','-c','echo "configmap: $CONFIGMAPVAR secret: $SECRETVAR"']
+      env:
+        - name: CONFIGMAPVAR
+          valueFrom:
+            configMapKeyRef:
+              name: my-configmap
+              key: key-1
+        - name: SECRETVAR
+          valueFrom:
+            secretKeyRef:
+              name: my-secrets
+              key: secret-1
+
+# kubectl logs env-pod
