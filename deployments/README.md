@@ -1,14 +1,14 @@
-##Commands for working  with deployments
+## Commands for working  with deployments
 
-###create
+#### Create
 ```kubectl create deployment -f deployment-definition.yaml```
-###get
+#### Get
 ```kubectl get deployments```
-###update
+#### Update
 ```kubectl apply -f deployment-definition.yaml```  
 ```kubectl set image deployment/my-deployment nginx=nginx:1.9.0```
-###status
+#### Status
 ```kubectl rollout status deployment/my-deployment```  
 ```kubectl rollout history deployment/my-deployment```
-###rollback
+#### Rollback
 ```kubectl rollout undo deployment/my-deployment```
